@@ -48,3 +48,37 @@ require'nvim-treesitter.configs'.setup {
 vim.wo.foldmethod = "expr"
 vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
 vim.o.foldlevelstart = 99 -- do not close folds when a buffer is opened
+
+--
+-- EBNF Treesitter 
+--
+require('nvim-treesitter.parsers').get_parser_configs().ebnf = {
+    install_info = {
+        url = 'https://github.com/RubixDev/tree-sitter-ebnf.git',
+        files = { 'src/parser.c' },
+        branch = 'main',
+    },
+}
+vim.filetype.add { extension = { ebnf = 'ebnf' } }
+
+--
+-- Tokyonight Configuration
+--
+require("tokyonight").setup
+{
+    on_colors = function(colors)
+    end,
+}
+
+--
+-- Autoclose
+--
+require("autoclose").setup
+{
+    keys =
+    {
+        ["'"] = { close = false },
+        ["<"] = { escape = true, close = true, pair = "<>", disabled_filetypes = {"sh", "cpp"}},
+        [">"] = { escape = true },
+    }
+}
