@@ -78,7 +78,7 @@ require("autoclose").setup
     keys =
     {
         ["'"] = { close = false },
-        ["<"] = { escape = true, close = true, pair = "<>", disabled_filetypes = {"sh", "cpp"}},
+        ["<"] = { escape = true, close = true, pair = "<>", disabled_filetypes = {"sh", "cpp", "lua", "gleam"}},
         [">"] = { escape = true },
     }
 }
